@@ -35,28 +35,44 @@
 {else}
     {foreach from=$profileGroups item=group}
 
-        {if $groupID EQ 32}  
+        {if $groupID EQ 32 || $groupID EQ 33}  
 			
 			<div id="profilewrap{$groupID}" class="crm-profile-view">
+				<div id="row-blankrow" class="crm-section blankrow">
+					<div class="label">&nbsp;&nbsp;</div>
+					<div class="content">&nbsp;&nbsp;</div>
+					<div class="clear"></div>
+				</div>
 
+				{if $groupID EQ 32}
 					<div id="row-organization_name" class="crm-section organization_name-section">
 						{if $row.Logo } 
-							{crmAPI var='result' entity='Website' action='get' contact_id=$row.ContactID website_type_id="Main"}
-							{foreach from=$result.values item=website}
-							   <div class="label">{$row.Logo}</div> 
-							{/foreach}
+						    <div class="label">{$row.Logo}</div> 
 						{else}				
-							<div class="label">&nbsp;&nbsp;</div>
+							<div class="label">Name:&nbsp;&nbsp;</div>
 						{/if}
 						<div class="content" align="justify"><h2>{$row.Organization}</h2></div>
 						<div class="clear"></div>
 					</div>
-
-				<div id="row-street_address_Primary" class="crm-section street_address_Primary-section">
-					<div class="label">Street:&nbsp;&nbsp;</div>
-					<div class="content">{$row.Street}</div>
-					<div class="clear"></div>
-				</div>
+			    {else}
+					<div id="row-contact_name" class="crm-section contact_name-section">
+						{if $row.Image } 
+						   <div class="label">{$row.Image}</div> 
+						{else}				
+							<div class="label">&nbsp;&nbsp;</div>
+						{/if}
+						<div class="content" align="justify"><h2>{$row.FirstName}&nbsp;{$row.LastName}</h2></div>
+						<div class="clear"></div>
+					</div>								
+				{/if}
+								
+				{if $groupID EQ 32}
+					<div id="row-street_address_Primary" class="crm-section street_address_Primary-section">
+						<div class="label">Street:&nbsp;&nbsp;</div>
+						<div class="content">{$row.Street}</div>
+						<div class="clear"></div>
+					</div>
+				{/if}
 				<div id="row-city_3" class="crm-section city_3-section">
 					<div class="label">City:&nbsp;&nbsp;</div>
 					<div class="content">{$row.City}</div>
@@ -82,6 +98,13 @@
 					<div class="content"><a href="tel:{$row.Phone}">{$row.Phone}</a></div>
 					<div class="clear"></div>
 				</div>
+
+				<div id="row-blankrow" class="crm-section blankrow">
+					<div class="label">&nbsp;&nbsp;</div>
+					<div class="content">&nbsp;&nbsp;</div>
+					<div class="clear"></div>
+				</div>
+				
 				<div id="row-websitetypes" class="crm-section websitetypes-section">
 				    <div class="label">Websites:&nbsp;&nbsp;</div>
 					<div class="content">
@@ -141,6 +164,13 @@
 					{/if}
 					</div>
 				</div>
+
+				<div id="row-blankrow" class="crm-section blankrow">
+					<div class="label">&nbsp;&nbsp;</div>
+					<div class="content">&nbsp;&nbsp;</div>
+					<div class="clear"></div>
+				</div>
+				
 				<div id="row-custom_2" class="crm-section custom_2-section">
 					<div class="label">Types of Making:&nbsp;&nbsp;</div>
 					<div class="content">{$row.Types}</div>
@@ -157,15 +187,22 @@
 					<div class="clear"></div>
 				</div>		
             </div>
-  	    {else}
-            <h2>{$row.Organization}</h2>
+  	    {else}			
             <div id="profilewrap{$groupID}" class="crm-profile-view">
-    	    {$group.content}
+    	    {$group.content}			
             </div>
 		{/if}
 
 
     {/foreach}
+	
+	<div id="row-blankrow" class="crm-section blankrow">
+		<div class="label">&nbsp;&nbsp;</div>
+		<div class="content">&nbsp;&nbsp;</div>
+		<div class="clear"></div>
+	</div>
+
+	
     <div class="action-link">
         {if $listingURL}
             <a href="{$listingURL}">&raquo; {ts}Back to Listings{/ts}</a>&nbsp;&nbsp;&nbsp;&nbsp;
