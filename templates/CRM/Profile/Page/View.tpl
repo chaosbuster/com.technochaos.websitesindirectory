@@ -35,7 +35,7 @@
 {else}
     {foreach from=$profileGroups item=group}
 
-        {if $groupID EQ 32 || $groupID EQ 33 || $groupID EQ 42 || $groupID EQ 43 || $groupID EQ 44 || $groupID EQ 45}  
+        {if $groupID EQ 32 || $groupID EQ 33 || $groupID EQ 42 || $groupID EQ 43 || $groupID EQ 44 || $groupID EQ 45 || $groupID EQ 46 || $groupID EQ 47}  
 			
 			<div id="profilewrap{$groupID}" class="crm-profile-view">
 				<div id="row-blankrow" class="crm-section blankrow">
@@ -44,7 +44,7 @@
 					<div class="clear"></div>
 				</div>
 
-				{if $groupID EQ 32 || $groupID EQ 42 || $groupID EQ 43 || $groupID EQ 44 || $groupID EQ 45}
+				{if $groupID EQ 32 || $groupID EQ 42 || $groupID EQ 43 || $groupID EQ 44 || $groupID EQ 45 || $groupID EQ 46 || $groupID EQ 47}
 					<div id="row-organization_name" class="crm-section organization_name-section">
 						{if $row.Logo } 
 						    <div class="label">{$row.Logo}</div> 
@@ -66,7 +66,7 @@
 					</div>								
 				{/if}
 								
-				{if $groupID EQ 32 || $groupID EQ 42 || $groupID EQ 43 || $groupID EQ 44 || $groupID EQ 45}
+				{if $groupID EQ 32 || $groupID EQ 42 || $groupID EQ 43 || $groupID EQ 44 || $groupID EQ 45 || $groupID EQ 46 || $groupID EQ 47}
 					<div id="row-street_address_Primary" class="crm-section street_address_Primary-section">
 						<div class="label">Street:&nbsp;&nbsp;</div>
 						<div class="content">{$row.Street}</div>
